@@ -26,11 +26,11 @@ namespace PeopleDirectoryApi.Controllers
 		}
 
 		[HttpPost()]
-		public async Task<ActionResult> AddCompany(AddCompanyRequest companyRequest)
+		public async Task<ActionResult<Company>> AddCompany(AddCompanyRequest companyRequest)
 		{
-			await _companyService.AddCompany(companyRequest);
+			var result = await _companyService.AddCompany(companyRequest);
 
-			return Ok();
+			return Ok(result);
 		}
 	}
 }

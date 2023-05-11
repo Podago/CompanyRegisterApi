@@ -9,6 +9,6 @@ namespace PeopleDirectoryApi.Interfaces
 	{
 		Task<List<Company>> GetAllCompanies();
 
-		Task AddCompany(AddCompanyRequest companyRequest);
+		Task<Company> AddCompany(AddCompanyRequest companyRequest);
 	}
 }

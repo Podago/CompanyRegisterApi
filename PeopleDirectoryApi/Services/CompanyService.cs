@@ -29,7 +29,7 @@ namespace PeopleDirectoryApi.Services
 			return company;
 		}
 
-		public async Task AddCompany(AddCompanyRequest companyRequest)
+		public async Task<Company> AddCompany(AddCompanyRequest companyRequest)
 		{
 			var company = new Company
 			{
@@ -45,6 +45,8 @@ namespace PeopleDirectoryApi.Services
 				.AddAsync(company);
 
 			await _companyRegisterDbContext.SaveChangesAsync();
+
+			return company;
 		}
 	}
 }

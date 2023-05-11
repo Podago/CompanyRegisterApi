@@ -16,6 +16,12 @@ namespace PeopleDirectoryApi.Extensions
 			services.AddControllers().AddJsonOptions(x =>
 				x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
+			services.AddCors(o => o.AddPolicy("AllowAnyOrigins", builder =>
+			{
+				builder.AllowAnyOrigin()
+				.AllowAnyMethod()
+				.AllowAnyHeader();
+			}));
 
 			return services
 				.AddTransient<ICompanyService, CompanyService>()
